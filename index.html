@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiMemo - Interactive Story</title>
+  
+  <!-- Modern Cute Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@300..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Floating Background -->
+  <div class="ambient-background" id="ambientBg"></div>
+  
+  <!-- Particles Canvas (for sparkles, confetti, etc.) -->
+  <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+
+  <!-- Floating Music Player -->
+  <div class="music-player" id="musicPlayer">
+    <button class="music-toggle" id="musicToggle" aria-label="Toggle Music">
+      <!-- Disc/Vinyl SVG Icon -->
+      <svg class="disc-icon" viewBox="0 0 24 24" width="24" height="24">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none" />
+        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+        <path d="M12 2 A10 10 0 0 1 22 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-dasharray="3,3" />
+      </svg>
+    </button>
+    <div class="volume-panel" id="volumePanel">
+      <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.05" value="0.5" aria-label="Volume">
+    </div>
+    <audio id="bgAudio" loop></audio>
+  </div>
+
+  <!-- Landing Screen Overlay -->
+  <div class="landing-screen" id="landingScreen">
+    <div class="landing-content">
+      <div class="heart-trigger" id="heartTrigger" role="button" tabindex="0" aria-label="Tap to open memo">
+        <!-- Cute pulsating heart with custom styling -->
+        <svg class="pulsing-heart" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <span class="sparkle-spark">✨</span>
+        <span class="sparkle-spark">⭐</span>
+        <span class="sparkle-spark">🌸</span>
+      </div>
+      <h1 class="landing-title" id="landingTitle">Loading...</h1>
+      <p class="landing-hint">Tap me ❤️</p>
+    </div>
+  </div>
+
+  <!-- Main Web App Container -->
+  <main class="app-container hidden" id="appContainer">
+    <!-- Centered Card Wrapper -->
+    <div class="card-wrapper" id="cardWrapper">
+      
+      <!-- Dialogue Bubble -->
+      <div class="bubble-container" id="bubbleContainer">
+        <div class="dialogue-bubble" id="dialogueBubble">
+          <span class="bubble-text" id="bubbleText"></span>
+        </div>
+      </div>
+
+      <!-- Main Interactive Card -->
+      <div class="story-card" id="storyCard">
+        
+        <!-- Character Display Area -->
+        <div class="character-container" id="characterContainer">
+          <!-- Animated SVGs will be injected here -->
+        </div>
+
+        <!-- Custom Content Area (Story messages, interactive envelope, photos, etc.) -->
+        <div class="card-content">
+          <p class="card-message" id="cardMessage"></p>
+          
+          <!-- Dynamic Content Injector (Envelope, Gallery, Questions) -->
+          <div class="dynamic-content-area" id="dynamicContentArea"></div>
+        </div>
+
+        <!-- Footer / Navigation -->
+        <div class="card-footer" id="cardFooter">
+          <!-- Navigation buttons are generated dynamically based on page type -->
+        </div>
+        
+      </div>
+    </div>
+  </main>
+
+  <!-- Photo Scrapbook Modal Zoom -->
+  <div class="photo-modal hidden" id="photoModal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="Close photo">&times;</button>
+    <div class="modal-content">
+      <img src="" alt="Zoomed memory photo" class="modal-image" id="modalImage">
+      <p class="modal-caption" id="modalCaption"></p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

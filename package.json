@@ -1,0 +1,17 @@
+{
+  "name": "digimemo-love",
+  "version": "1.0.0",
+  "description": "A premium, responsive, and highly-customizable interactive digital memo.",
+  "scripts": {
+    "dev": "npx http-server -p 3000 -o"
+  },
+  "keywords": [
+    "kawaii",
+    "interactive-story",
+    "anniversary",
+    "love-letter",
+    "digimemo"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}
